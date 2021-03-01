@@ -11,6 +11,7 @@
         <module>cloud-api-commos</module>
         <module>cloud-provider-payment8001</module>
         <module>cloud-consumer-order80</module>
+        <module>cloud-eureka-server7001</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -27,6 +28,7 @@
         <lombok.version>1.18.18</lombok.version>
         <devtools.version>2.4.3</devtools.version>
         <test.version>2.4.3</test.version>
+        <spring-cloud.version>2020.0.1</spring-cloud.version>
     </properties>
 
     <dependencyManagement>
@@ -68,13 +70,6 @@
                 <version>${lombok.version}</version>
             </dependency>
 
-            <!--            &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools &ndash;&gt;-->
-            <!--            <dependency>-->
-            <!--                <groupId>org.springframework.boot</groupId>-->
-            <!--                <artifactId>spring-boot-devtools</artifactId>-->
-            <!--                <version>${devtools.version}</version>-->
-            <!--            </dependency>-->
-            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
@@ -82,7 +77,23 @@
                 <scope>test</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
